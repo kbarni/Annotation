@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>BCheckBox.qml</file>
+        <file>BComboBox.qml</file>
+        <file>BEdit.qml</file>
+        <file>BSeparator.qml</file>
+        <file>BSlider.qml</file>
+        <file>BSpinBox.qml</file>
+        <file>CameraWidget.qml</file>
+        <file>GPSWidget.qml</file>
+        <file>icons/brightness-6.png</file>
+        <file>icons/camera-outline.png</file>
+        <file>icons/shape-square-plus.png</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>pagebase.yml</file>
+        <file>File.qml</file>
+        <file>icons/floppy.png</file>
+        <file>icons/camera-iris.png</file>
+        <file>icons/help-circle-outline.png</file>
+        <file>Help.qml</file>
+        <file>languages/AnnotationV3_en.qm</file>
+        <file>languages/AnnotationV3_fr.qm</file>
+        <file>languages/AnnotationV3_hu.qm</file>
+    </qresource>
+</RCC>

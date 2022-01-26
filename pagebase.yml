@@ -1,0 +1,88 @@
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
+
+Page {
+    id: page
+    anchors.fill: parent
+
+    function resetAll() {
+        %1
+        description.text="";
+    }
+    function createTitle(){
+        var t = '\t'
+        var data = "Date\tTime\t"%2+"Description\n";
+        backend.title=data;
+    }
+    function createData()
+    {
+        var data = Qt.formatDateTime(new Date(),"yy/MM/dd\thh:mm:ss\t")%3+description.text+"\n";
+        backend.writeData(data);
+    }
+    Component.onCompleted: {
+        createTitle();
+    }
+    ScrollView {
+        id: scrollview
+        anchors.fill: parent
+        padding: 5
+        contentWidth: availableWidth
+        contentHeight: column.height
+        clip: true
+        Column {
+             id: column
+             width: page.width-10
+             //enabled: backend.filevalid
+             spacing: 10
+             GroupBox {
+                 width: parent.width
+                 Flow {
+                     id: flow1
+                     padding: 3
+                     spacing: 5
+                     anchors.fill: parent
+                     %4
+                     Rectangle {
+                          id: rect
+                          width: parent.width
+                          height: 100
+                          color: "#ffffff"
+                          border.width: 1
+
+                          TextInput {
+                              id: description
+                              wrapMode: Text.WordWrap
+                              text: ""
+                              anchors.rightMargin: 4
+                              anchors.leftMargin: 4
+                              anchors.bottomMargin: 4
+                              anchors.topMargin: 4
+                              anchors.fill: parent
+                              Keys.onReturnPressed: focus = false
+                          }
+                      }
+                  }
+              }
+          }
+      }
+      Item {
+          id: element
+          property alias button: button
+          anchors.right: parent.right
+          anchors.rightMargin: 20
+          anchors.bottom: parent.bottom
+          anchors.bottomMargin: 20
+          implicitHeight: button.height
+          implicitWidth: button.width
+          Button {
+              id: button
+              text: "%5"
+              onClicked: {
+                  createData();
+                  //status.text="Données pour photo "+nophoto.value+" enregistrées";
+                  resetAll();
+              }
+          }
+      }
+  }
