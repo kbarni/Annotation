@@ -10,7 +10,7 @@ Item{
     property string defaultvalue: ''
     property bool persistent: false
     property bool enabled: true
-    property int textwidth: 150
+    property int fieldwidth: 150
     property bool numberfield: false
     signal reset()
     signal setvalue(string s)
@@ -30,7 +30,7 @@ Item{
         TextField{
             id: control
             enabled: root.enabled
-            width: root.textwidth
+            width: root.fieldwidth
             onTextChanged: root.stringvalue=text+'\t'
             Keys.onReturnPressed: focus = false
             inputMethodHints: root.numberfield ? Qt.ImhFormattedNumbersOnly:Qt.ImhNone

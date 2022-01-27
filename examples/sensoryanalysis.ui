@@ -1,0 +1,56 @@
+//Example form for sensory analysis
+// Copy this file to the Documents folder of your device to use it.
+
+BSpinBox {
+    id: age
+    label: "Age"
+    maxvalue:100
+    defaultvalue: 20
+    persistent: true
+}
+BComboBox {
+    id: sex
+    label: "Sex"
+    items: ["Male","Female"]
+    persistent: true
+}
+BSeparator {
+    label: "Sensory analysis"
+}
+BSpinBox {
+    id: sampleno
+    label: "Sample number"
+    autoincrement: true
+}
+BComboBox {
+    id: cultivar
+    label: "Cultivar"
+    items: ["Ariane","Braeburn","Pink lady"]
+}
+
+BSeparator{
+    label: "Scores"
+}
+BSlider {
+    id: crunch
+    label: "Crunchiness"
+    maxvalue: 5
+}
+BSlider {
+    id: sweet
+    label: "Sweetness"
+    maxvalue: 5
+}
+BSlider {
+    id: firm
+    label: "Firmness"
+    maxvalue: 5
+}
+BSlider {
+    id: acid
+    label: "Acidity"
+    maxvalue: 5
+}
+BSeparator {
+    label: "Describe below your experience"
+}

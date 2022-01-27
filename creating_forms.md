@@ -4,9 +4,11 @@ The interface of the *Annotation* app is fully configurable that can be adapted 
 
 The forms are defined in `.ui` text files which have to be in the `Documents` folder of the device.
 
-[image]
+![image](Documentation/screenshot_form.png)
 
 These files can be created using any text editor.
+
+Some example forms can be found in the `examples` folder.
 
 ## Creating user forms
 
@@ -19,9 +21,9 @@ The controls have the following syntax:
 
 There are three parameters, which are common for most controls:
 
-- `id`: this is the ***unique*** identifier of the control. This parameter ***must*** be defined to all contols, except `BSeparator`.
+- `id`: this is the ***unique*** identifier of the control. This parameter ***must*** be defined for all contols, except `BSeparator`. It consists in one word, beginning with a lowercase letter.
 
-- `label`: the label displayed with the control (all, except `GPSWidget`)
+- `label`: the label displayed with the control (all, except `GPSWidget`). It has to be enclosed in quotation marks.
 
 - `persistent`: if this is set to `true`, the control will keep its value after the data is saved; otherwise it resets to the default value (all the input controls)
 
@@ -34,7 +36,7 @@ Parameters:
 - `id` - unique identifier
 - `label` - label to be shown near the control
 - `persistent` - set to `true` to keep the value of the control after saving the data
-- `textwidth` - sets the width of the text field
+- `fieldwidth` - sets the width of the text field
 - `numberfield` - set to `true` to accept only numbers. This also sets the on-screen keyboard to numeric.
 
 **BSpinBox**: a number field with +/- buttons to change its value.
@@ -57,6 +59,7 @@ Parameters:
 - `persistent` - set to `true` to keep the value of the control
 - `defaultvalue` - the initial value of the control. When the spinbox is reset, it will take this value again.
 - `maxvalue` - the upper limit of the value
+- `fieldwidth` - sets the length of the slider
 
 **BCheckBox**: a check box
 
@@ -74,6 +77,7 @@ Parameters:
 - `label` - label to be shown near the combo box
 - `persistent` - set to `true` to keep the value of the control
 - `items` - the list of the items of the control in format: `["Item1","Item2",...]`
+- `fieldwidth` - sets the width of the combo box field
 
 **BSeparator**: Adds a separator with a title to the interface. Useful for grouping controls
 
@@ -89,8 +93,12 @@ Parameters:
 
 - `id` - unique identifier
 
+*Note:* Do not assign a label to the `GPSWidget` control!
+
 **CameraWidget**: a widget to take a photo. The photo will be saved to the pictures folder (e.g. `DCIM` on mobile devices) with file name `annot_[date]_[time].jpg`
 
 Parameters:
 
 - `id` - unique identifier
+
+You can also add **comments** to a UI file in lines beginning with `//` or between `/*` and `*/` (like in C).

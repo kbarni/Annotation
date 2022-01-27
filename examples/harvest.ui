@@ -1,0 +1,59 @@
+// Example file for Annotation app for grape yield notation
+// Copy this file to the Documents folder of your device to use it.
+
+BSeparator {
+    label: "Positioning"
+}
+BComboBox {
+    id: plot
+    label: "Plot"
+    items: ["Chene5","Magnolias1","Magnolias2","Tir4"]
+    fieldwidth: 200
+    persistent: true
+}
+BSpinBox {
+    id: row
+    label: "Row"
+    defaultvalue: 1
+    persistent: true
+}
+BSpinBox {
+    id: plant
+    label: "Plant no."
+    defaultvalue: 1
+    maxvalue: 199
+    persistent: true
+}
+BComboBox {
+    id: varietal
+    label: "Varietal"
+    items: ["Merlot","Cabernet Sauvignon","Cabernet Franc"]
+    fieldwidth: 250
+    persistent: true
+}
+GPSWidget {
+    id: gps
+}
+BSeparator {
+    label: "Yield"
+}
+BEdit{
+    id: weight
+    label: "Harvest weight"
+    numberfield: true
+}
+BSlider{
+    id: vigor
+    label: "Plant vigor"
+    maxvalue:5
+    defaultvalue:3
+}
+BSpinBox{
+    id: brunchno
+    label: "No. of bunches"
+    maxvalue: 10
+}
+CameraWidget{
+    id: camera
+    label: "Harvest photo"
+}

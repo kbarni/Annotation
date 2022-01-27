@@ -1,0 +1,67 @@
+// Example form for Annotation app.
+// This file demonstrates the different control types that can be used in a form.
+
+// To add comments, use "//"
+
+BSeparator {
+    label: "Common controls"
+}
+
+BEdit {
+    // add a unique id for every control!
+    id: text
+    label: "Text field"
+}
+
+BEdit {
+    id: number
+    label: "Number field"
+    // add this parameter to accept numbers only
+    numberfield: true
+}
+
+BCheckBox {
+    id: check1
+    label: "Checkbox"
+}
+
+BCheckBox {
+    id: check2
+    label: "Another checkbox"
+    // add the following parameter to prevent the control resetting after saving the data
+    persistent: true
+}
+
+BSpinBox {
+    id: spin
+    label: "Spin box"
+    maxvalue: 20
+}
+
+BSlider {
+    id: slider
+    label: "Slider"
+    maxvalue: 5
+    defaultvalue: 3
+    fieldwidth: 100
+}
+
+BComboBox {
+    id: combo
+    label: "Choose one"
+    items: ["Apple","Banana","Cherry","Strawberry"]
+    // increase fieldwidth to fit in all the elements
+    fieldwidth: 200
+}
+
+BSeparator {
+    label: "Special controls"
+}
+
+GPSWidget {
+    id: gps
+}
+
+CameraWidget {
+    id: camera
+}

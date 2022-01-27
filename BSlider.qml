@@ -11,6 +11,7 @@ Item{
     property int defaultvalue: 0
     property int value: defaultvalue
     property bool enabled: true
+    property int fieldwidth: 150
     property bool persistent: false
     signal reset()
     onReset: if(!persistent) control.value=defaultvalue
@@ -24,6 +25,7 @@ Item{
             id: control
             to: root.maxvalue
             value: root.value
+            width: root.fieldwidth
             enabled: root.enabled
             stepSize: 1
             onValueChanged: {

@@ -1,0 +1,89 @@
+// Example file for Annotation app for grape disease notation
+// Copy this file to the Documents folder of your device to use it.
+
+BSeparator {
+    label: "Plant data"
+}
+BEdit {
+    id: plot
+    label: "Plot"
+    persistent: true
+}
+BSpinBox {
+    id: row
+    label: "Row"
+    defaultvalue: 1
+    persistent: true
+}
+BSpinBox {
+    id: plant
+    label: "Plant no."
+    defaultvalue: 1
+    maxvalue: 199
+    persistent: true
+}
+BComboBox {
+    id: varietal
+    label: "Varietal"
+    items: ["Merlot","Cabernet Sauvignon","Cabernet Franc"]
+    fieldwidth: 250
+    persistent: true
+}
+GPSWidget {
+    id: gps
+}
+BSeparator {
+    label: "Disease"
+}
+BCheckBox {
+    id: dmildew
+    label: "Downy mildew"
+}
+BCheckBox {
+    id: pmildew
+    label: "Powdery mildew"
+}
+BCheckBox {
+    id: mould
+    label: "Mould rot"
+}
+BCheckBox {
+    id: bda
+    label: "Black dead arm"
+}
+BCheckBox {
+    id: other
+    label: "Other"
+}
+BCheckBox {
+    id: healthy
+    label: "Healthy"
+}
+BSeparator {
+    label: "Symptoms"
+}
+BSlider {
+    id: severity
+    label: "Severity"
+    maxvalue: 5
+    defaultvalue: 3
+}
+BEdit {
+    id: affected
+    label: "Affected parts"
+}
+CameraWidget {
+    id: camera
+}
+BCheckBox{
+    id: decoloration
+    label: "Leaf decoloration"
+}
+BCheckBox{
+    id: spots
+    label: "Leaf spots"
+}
+BCheckBox{
+    id: decay
+    label: "Berry decay"
+}

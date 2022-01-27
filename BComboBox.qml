@@ -8,9 +8,9 @@ Item{
     property string label: ''
     property variant items: []
     property string stringvalue:'0\t'
-    //property int defaultvalue: 0
     property bool enabled: true
     property int value: 0
+    property int fieldwidth: 150
     property bool persistent: false
     signal reset()
     onReset: if(!persistent)control.currentIndex=0
@@ -25,6 +25,7 @@ Item{
             id: control
             model: items
             enabled: root.enabled
+            width: root.fieldwidth
             currentIndex: root.value
             onCurrentTextChanged: {
                 root.value=currentIndex
