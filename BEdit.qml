@@ -10,12 +10,19 @@ Item{
     property string defaultvalue: ''
     property bool persistent: false
     property bool enabled: true
+    property int textwidth: 150
+    property bool numberfield: false
     signal reset()
     signal setvalue(string s)
     onSetvalue: control.text=s
     onReset: if(!persistent) control.text=defaultvalue
+    DoubleValidator{
+        id: dv
+        notation: DoubleValidator.StandardNotation
+    }
     Row{
         id: row
+        spacing: 10
         Label{
             text: root.label
             anchors.verticalCenter: parent.verticalCenter
@@ -23,8 +30,11 @@ Item{
         TextField{
             id: control
             enabled: root.enabled
+            width: root.textwidth
             onTextChanged: root.stringvalue=text+'\t'
             Keys.onReturnPressed: focus = false
+            inputMethodHints: root.numberfield ? Qt.ImhFormattedNumbersOnly:Qt.ImhNone
+            validator: root.numberfield ? dv : null
         }
     }
 }

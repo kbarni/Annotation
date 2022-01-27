@@ -8,14 +8,15 @@ Item{
     property string label: ''
     property variant items: []
     property string stringvalue:'0\t'
-    property int defaultvalue: 0
+    //property int defaultvalue: 0
     property bool enabled: true
-    property int value: defaultvalue
+    property int value: 0
     property bool persistent: false
     signal reset()
-    onReset: if(!persistent)control.currentIndex=defaultvalue
+    onReset: if(!persistent)control.currentIndex=0
     Row{
         id: row
+        spacing: 10
         Label{
             text: root.label
             anchors.verticalCenter: parent.verticalCenter

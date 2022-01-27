@@ -64,6 +64,7 @@ Item {
     implicitWidth: row.width
     Row{
         id: row
+        spacing: 10
         Label{
             text: root.label
             anchors.verticalCenter: parent.verticalCenter

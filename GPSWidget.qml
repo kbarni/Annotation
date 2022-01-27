@@ -30,6 +30,7 @@ Item{
 
     Row{
         id: row
+        spacing: 5
         Label{
             text: "GPS "
             anchors.verticalCenter: parent.verticalCenter
