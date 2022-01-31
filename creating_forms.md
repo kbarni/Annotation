@@ -2,7 +2,7 @@
 
 The interface of the *Annotation* app is fully configurable that can be adapted it to any project.
 
-The forms are defined in `.ui` text files which have to be in the `Documents` folder of the device.
+The forms are defined in `.ui` text files which have to be in the `Documents/annotation_forms/` folder of the device.
 
 ![image](Documentation/screenshot_form.png)
 
@@ -101,4 +101,4 @@ Parameters:
 
 - `id` - unique identifier
 
-You can also add **comments** to a UI file in lines beginning with `//` or between `/*` and `*/` (like in C).
+You can also add **comments** to a UI file in lines beginning with `//`, like in C/C++.

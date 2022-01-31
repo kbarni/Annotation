@@ -31,7 +31,7 @@ public slots:
     void writeData(QString s);
 protected:
     QString createFunctions(QString s);
-    QDir dir;
+    QDir dir,filedir,uidir;
     bool havefile;
     QString m_currentfile,m_title;
     QString m_projet,m_domaine;

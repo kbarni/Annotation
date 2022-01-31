@@ -101,11 +101,11 @@ Page {
             enabled: filelist.currentIndex>0 | (filename.text!="" && uilist.currentIndex>0)
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
             onClicked: {
+                page.setUI(uilist.currentText);
                 if(filelist.currentIndex==0)
                     backend.createFile(filename.text,uilist.currentText,projet.text,domaine.text,observations.text);
                 else
                     backend.selectFile(filename.text);
-                page.setUI(uilist.currentText);
                 page.closeMe();
             }
         }

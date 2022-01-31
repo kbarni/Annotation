@@ -7,9 +7,13 @@
 Backend::Backend(QObject *parent) : QObject(parent)
 {
     dir.setPath(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
-    m_filelist = dir.entryList(QStringList() << "*.ant",QDir::Files);
+    dir.mkdir("annotation");
+    dir.mkdir("annotation_forms");
+    uidir.setPath(dir.path()+"/annotation_forms");
+    filedir.setPath(dir.path()+"/annotation");
+    m_filelist = filedir.entryList(QStringList() << "*.ant",QDir::Files);
     m_filelist.push_front(tr("Nouveau fichier..."));
-    m_uilist = dir.entryList(QStringList() << "*.ui",QDir::Files);
+    m_uilist = uidir.entryList(QStringList() << "*.ui",QDir::Files);
     m_uilist.push_front(tr("Choisir..."));
     m_uiindex=0;
 }
@@ -28,6 +32,8 @@ QString Backend::createFunctions(QString s)
     QString id;
     bool haveid=false;
     for(const QString &line:qAsConst(sl)){
+        if(line.trimmed().startsWith("//"))
+            continue;
         if(line.contains("id:")){
             id=line.mid(line.indexOf(':')+2);
             haveid=true;
@@ -44,7 +50,7 @@ QString Backend::createFunctions(QString s)
 
 QString Backend::getMainPage(QString uifile)
 {
-    QFile f(dir.path()+"/"+uifile);
+    QFile f(uidir.path()+"/"+uifile);
     f.open(QFile::ReadOnly);
     QTextStream ts(&f);
     QString s = ts.readAll();
@@ -59,14 +65,16 @@ void Backend::createFile(QString filename,QString ui,QString projet, QString dom
         filename+=".ant";
     //qDebug()<<"Creating"<<filename;
     m_currentfile=filename;
-    QFile f(dir.path()+"/"+m_currentfile);
+    QFile f(filedir.path()+"/"+m_currentfile);
     f.open(QIODevice::WriteOnly);
     QTextStream ts(&f);
     ts<<ui<<"\n"<<projet<<"\n"<<domaine<<"\n"<<obs<<"\n\n";
     ts<<m_title<<"\n";
     f.close();
     m_filelist.append(m_currentfile);
+    m_projet=projet;
     emit filelistChanged();
+    emit projectChanged();
 }
 void Backend::selectFile(QString filename)
 {
@@ -76,7 +84,7 @@ void Backend::selectFile(QString filename)
 
 void Backend::writeData(QString s)
 {
-    QFile f(dir.path()+"/"+m_currentfile);
+    QFile f(filedir.path()+"/"+m_currentfile);
     f.open(QIODevice::Append);
     QTextStream ts(&f);
     ts<<s;
@@ -85,7 +93,7 @@ void Backend::writeData(QString s)
 
 void Backend::filechanged(QString filename)
 {
-    QFile f(dir.path()+"/"+filename);
+    QFile f(filedir.path()+"/"+filename);
     if(!f.open(QFile::ReadOnly))return;
     QTextStream ts(&f);
     QString m_uifile = ts.readLine();

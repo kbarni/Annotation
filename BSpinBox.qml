@@ -6,15 +6,18 @@ Item{
     implicitHeight: row.height
     implicitWidth: row.width
     property string label: ''
-    property int maxvalue: 5
-    property string stringvalue: '\t'
+    property int maxvalue: 99
+    property string stringvalue: '0\t'
     property int defaultvalue: 0
     property int value: defaultvalue
     property bool persistent: false
     property bool autoincrement: false
     signal reset()
     onReset: {
-        if(autoincrement) control.value += 1
+        if(autoincrement) {
+            console.log("Reset");
+            control.value += 1
+        }
         else if(!persistent) control.value=defaultvalue
     }
     Row{
