@@ -32,7 +32,7 @@ ApplicationWindow {
 
         ToolButton {
             id: dbase
-            icon.source: "qrc:/icons/floppy.png"
+            icon.source: "qrc:/icons/database-edit-outline.png"
             onClicked: {
                 if (stackview.depth > 1) {
                     stackview.pop(StackView.PushTransition);

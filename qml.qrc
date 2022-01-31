@@ -22,5 +22,6 @@
         <file>languages/AnnotationV3_en.qm</file>
         <file>languages/AnnotationV3_fr.qm</file>
         <file>languages/AnnotationV3_hu.qm</file>
+        <file>icons/database-edit-outline.png</file>
     </qresource>
 </RCC>

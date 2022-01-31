@@ -102,3 +102,25 @@ Parameters:
 - `id` - unique identifier
 
 You can also add **comments** to a UI file in lines beginning with `//`, like in C/C++.
+
+## Troubleshooting
+
+- If you cannot see the `ui` file in the dropdown list, make sure that it is in the `Documents/annotation_forms` folder of your device.
+
+- If you see an empty form, it means that something is wrong with your `ui` file. Try to remove some controls until you get a working form, and check the removed controls for errors.
+  
+  - Make sure that each `id` is unique! The `id` should be one word, beginning with a letter.
+  
+  - The parameters are always lowercase and case sensitive; they are followed by `:`! (`label :` is correct; `Label =` is incorrect)
+  
+  - Strings (e.g. for `label`) are enclosed in quotation marks. Other values (like `id`) are without quotation marks. See example below:
+    
+    ```
+    BCheckbox {
+        id: mycheckbox //no quotation mark
+        label: "Check box" //quotation mark
+        persistent: true //no quotation mark
+    }
+    ```
+    
+    

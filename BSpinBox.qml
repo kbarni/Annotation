@@ -14,10 +14,7 @@ Item{
     property bool autoincrement: false
     signal reset()
     onReset: {
-        if(autoincrement) {
-            console.log("Reset");
-            control.value += 1
-        }
+        if(autoincrement) control.value += 1
         else if(!persistent) control.value=defaultvalue
     }
     Row{
