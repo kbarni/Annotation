@@ -8,7 +8,7 @@ Advanced annotation tool for agricultural field work.
 
 - Cross platform  
   - Full support for Android, iOS, Windows, Linux, MacOS
-  - Provided executables for Windows and Android
+  - Provided executables for Android, Windows and Linux in the [Releases](https://github.com/kbarni/Annotation/releases) page.
 - Fully configurable user interface (see [Creating forms](creating_forms.md) for details)
 - Project-specific form
 - Multi-language (English and French currently)
